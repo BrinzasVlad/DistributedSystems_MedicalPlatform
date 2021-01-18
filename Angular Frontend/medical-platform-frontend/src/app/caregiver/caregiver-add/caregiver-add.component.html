@@ -1,0 +1,46 @@
+<div class="container mat-elevation-z8">
+  <div class="loading-shade"
+       *ngIf="isSendingData">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/caregivers']"><mat-icon>arrow_back</mat-icon></a>
+  </div>
+  <mat-card class="card">
+    <form [formGroup]="caregiverForm" (ngSubmit)="onFormSubmit()">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Name" formControlName="name" [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!caregiverForm.get('name').valid && caregiverForm.get('name').touched">
+            Please enter caregiver name
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput [matDatepicker]="birthDatePicker" [max]="maxDate" placeholder="Birth date" formControlName="birthDate">
+        <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #birthDatePicker startView="multi-year"></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+          <mat-select placeholder="Gender" formControlName="gender">
+              <mat-option value="Male">Male</mat-option>
+              <mat-option value="Female">Female</mat-option>
+              <mat-option value="Other">Other</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Address" formControlName="address" [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!caregiverForm.get('address').valid && caregiverForm.get('address').touched">
+            Please correct caregiver address
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" [disabled]="!caregiverForm.valid" mat-flat-button color="primary">
+          <mat-icon>save</mat-icon>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,39 @@
+.container {
+  position: relative;
+  padding: 5px;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-flat-button {
+  margin: 5px;
+}
+
+dl {
+  padding: 0.5em;
+}
+
+dt {
+  float: left;
+  clear: left;
+  width: 100px;
+  text-align: right;
+  font-weight: bold;
+  color: rgb(80, 80, 255);
+}
+
+dd {
+  margin: 0 0 0 110px;
+  padding: 0 0 0.5em 0;
+}

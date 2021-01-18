@@ -1,0 +1,47 @@
+<div class="container mat-elevation-z8">
+  <div class="loading-shade"
+       *ngIf="isLoadingData">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['']"><mat-icon>arrow_back</mat-icon></a>
+    <a mat-flat-button color="primary" [routerLink]="['/caregiver-add']"><mat-icon>add</mat-icon></a>
+  </div>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="caregivers" class="data-table">
+
+      <!-- Caregiver Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+
+      <!-- Caregiver Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let row">{{row.name}}</td>
+      </ng-container>
+
+      <!-- Caregiver Birth Date Column -->
+      <ng-container matColumnDef="birthDate">
+        <th mat-header-cell *matHeaderCellDef>Birth Date</th>
+        <td mat-cell *matCellDef="let row">{{row.birthDate}}</td>
+      </ng-container>
+
+      <!-- Caregiver Gender Column -->
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef>Gender</th>
+        <td mat-cell *matCellDef="let row">{{row.gender}}</td>
+      </ng-container>
+
+      <!-- Caregiver Address Column -->
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let row">{{row.address}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/caregiver-detail/', row.id]"></tr>
+    </table>
+  </div>
+</div>

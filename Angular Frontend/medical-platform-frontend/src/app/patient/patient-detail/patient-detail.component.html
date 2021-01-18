@@ -1,0 +1,57 @@
+<div class="container mat-elevation-z8">
+  <div class="loading-shade"
+       *ngIf="isLoadingData">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/patients']"><mat-icon>arrow_back</mat-icon></a>
+  </div>
+  <mat-card class="card" *ngIf="patient">
+    <mat-card-header>
+      <mat-card-title><h2>{{patient.name}}</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <dt>Id:</dt>
+        <dd>{{patient.id}}</dd>
+        <dt>Birth date:</dt>
+        <dd>{{patient.birthDate}}</dd>
+        <dt>Gender:</dt>
+        <dd>{{patient.gender}}</dd>
+        <dt>Address:</dt>
+        <dd>{{patient.address}}</dd>
+      </dl>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Activity history
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <app-patient-activities-detail [patientId] = "patient.id">
+        </app-patient-activities-detail>
+
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Medication history
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <app-patient-medication-detail [patientId] = "patient.id">
+        </app-patient-medication-detail>
+      </mat-expansion-panel>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" [routerLink]="['/patient-edit', patient.id]">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <a mat-flat-button color="warn" (click)="deleteCurrentPatient()">
+        <mat-icon>delete</mat-icon>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>

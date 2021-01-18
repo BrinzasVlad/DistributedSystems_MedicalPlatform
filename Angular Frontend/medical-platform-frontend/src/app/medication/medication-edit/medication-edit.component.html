@@ -1,0 +1,43 @@
+<div class="container mat-elevation-z8">
+  <div class="loading-shade"
+       *ngIf="isProcessing">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/medications']"><mat-icon>arrow_back</mat-icon></a>
+  </div>
+  <mat-card class="card">
+    <form [formGroup]="medicationForm" (ngSubmit)="onFormSubmit()">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Name" formControlName="name" [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!medicationForm.get('name').valid && medicationForm.get('name').touched">
+            Please enter medication name
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Dosage" formControlName="dosage" [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!medicationForm.get('dosage').valid && medicationForm.get('dosage').touched">
+            Please correct medicaton dosage
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Side effects" formControlName="sideEffects"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!medicationForm.get('sideEffects').valid && medicationForm.get('sideEffects').touched">
+            Please correct side effects
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" [disabled]="!medicationForm.valid" mat-flat-button color="primary">
+          <mat-icon>done</mat-icon>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

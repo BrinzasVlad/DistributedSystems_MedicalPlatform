@@ -1,0 +1,7 @@
+.chart {
+    width: 100%;
+}
+
+.mat-row.hovered {
+  background: #eee;
+}

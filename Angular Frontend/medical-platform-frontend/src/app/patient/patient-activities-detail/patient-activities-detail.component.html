@@ -1,0 +1,138 @@
+<div class="loading-shade"
+    *ngIf="!patientActivities">
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="timelineData && timelineData.length">
+    <h3>Activity 24-hour Timeline</h3>
+
+    <google-chart class = "chart"
+        [type] = "'Timeline'"
+        [data] = "timelineData"
+        [dynamicResize] = "true"
+        [options] = "timelineOptions">
+    </google-chart>
+</div>
+<div *ngIf="patientActivities && !timelineData.length">
+    <h3>Activity 24-hour Timeline</h3>
+    <h4>No activities recorded in the last 24 hours</h4>
+</div>
+<div *ngIf="columnData">
+    <h3>Activity distribution by name</h3>
+
+    <mat-form-field>
+        <mat-label>Time period</mat-label>
+        <mat-select [(ngModel)]="columnTimeframe" (selectionChange)="updateActivityDistribution($event)">
+            <mat-option *ngFor="let option of timeframeOptions" [value]="option.value">
+                {{option.title}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <google-chart class = "chart"
+        [type] = "'ColumnChart'"
+        [data] = "columnData"
+        [dynamicResize] = "true"
+        [options] = "columnOptions">
+    </google-chart>
+    <!-- TODO: Angular Google Chart Advanced (in the Readme) -> Get access to the control wrappers, add bars -->
+</div>
+<div *ngIf="pieData">
+    <h3>Activity breakdown</h3>
+
+    <mat-form-field>
+        <mat-label>Time period</mat-label>
+        <mat-select [(ngModel)]="pieTimeframe" (selectionChange)="updateActivityBreakdown($event)">
+            <mat-option *ngFor="let option of timeframeOptions" [value]="option.value">
+                {{option.title}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <google-chart class = "chart"
+        [type] = "'PieChart'"
+        [data] = "pieData"
+        [dynamicResize] = "true"
+        [options] = "pieOptions">
+    </google-chart>
+
+    <div *ngIf="!patientActivities"> <br> We have retrieved no activities for this patient yet. <br> </div>
+
+    <div *ngIf="patientActivities">
+        <mat-table #table [dataSource]="tablePagedData">
+
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.name}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="start">
+                <mat-header-cell *matHeaderCellDef> Start </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.start | date: 'medium'}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="end">
+                <mat-header-cell *matHeaderCellDef> End </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.end | date: 'medium'}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="duration">
+                <mat-header-cell *matHeaderCellDef> Duration </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.duration}} </mat-cell>
+                <!-- TODO: should be a call to the method that computes duration? -->
+            </ng-container>
+
+            <ng-container matColumnDef="abnormal">
+                <mat-header-cell *matHeaderCellDef> Abnormal </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.abnormal ? "Yes" : "No"}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="justified">
+                <mat-header-cell *matHeaderCellDef> Justified </mat-header-cell>
+                <mat-cell *matCellDef="let activity">
+                    &nbsp;&nbsp;&nbsp; <!-- Ugly hack to get spacing without CSS; otherwise the highlight looks bad -->
+                    <mat-slide-toggle
+                        [(ngModel)]="activity.justified"
+                        [disabled]="!activity.abnormal"
+                        (change)="updateActivity(activity)">
+                    </mat-slide-toggle>
+                    <!-- TODO: maybe we need to run a (change) function, too, to send updates when something is toggled? -->
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="recommendation">
+                <mat-header-cell *matHeaderCellDef> Recommendation </mat-header-cell>
+                <mat-cell *matCellDef="let activity">
+                    <mat-form-field *ngIf="activity.recommendation || activity.justified">
+                        <textarea
+                            matInput
+                            cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize"
+                            cdkAutosizeMinRows="1"
+                            cdkAutosizeMaxRows="5"
+                            [(ngModel)]="activity.recommendation"
+                            (focusout)="updateActivity(activity)"
+                            ></textarea>
+                        <!-- TODO: Have only the focused textarea grow to 5 rows and others remain at 1 always
+                        Solving solution: set maxRows as [editable] and bind it to a value in the .ts
+                        Solving challenge: only make this change for that one focused textarea -->
+                    </mat-form-field>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: tableColumns"
+                [ngClass]="{hovered: row.hovered}"
+                (mouseover)="row.hovered = true"
+                (mouseout) = "row.hovered = false">
+            </mat-row>
+        </mat-table>
+
+        <mat-paginator 
+            [length]="patientActivities.length"
+            [pageSize]="tableDefaultPageSize"
+            [pageSizeOptions]="tablePageSizes"
+            (page)="paginateTableData($event)"
+            showFirstLastButtons>
+        </mat-paginator>
+    </div>
+</div>

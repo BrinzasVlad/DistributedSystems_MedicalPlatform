@@ -1,0 +1,74 @@
+# docker-compose.yml
+
+version: "3.8"
+volumes:
+  data-volume: {}
+services:
+  mysql:
+    image: mysql
+    restart: on-failure
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    # Needed because apparently the mysql-client call from my wait-for-mysql.sh script doesn't know how to do encoded passwords
+    ports:
+      - "3306:3306"
+      # MySQL main port; enable only for testing or if you need communications from outside Docker
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      # MYSQL_DATABASE: medical-platform
+    volumes:
+      - data-volume:/var/lib/mysql
+      - ./MySQL/medical-platform-db-dump.sql:/docker-entrypoint-initdb.d/db-dump.sql
+      # FIXME: fix the timing requirements for this to work without being run ahead-of-time once
+
+  rabbitmq:
+    image: rabbitmq:management-alpine
+    restart: on-failure
+    ports:
+      - "5672:5672"
+      # RabbitMQ main port; enable only for testing if you need communications from outside Docker
+      - "15672:15672"
+      # RabbitMQ browser interface for monitoring; enable for testing or verification
+
+  rest-backend:
+    build: ./REST Backend
+    image: rest-backend
+    restart: on-failure
+    ports:
+      - "8080:8080"
+      # We have to open the container's port 8080, because the Angular frontend actually runs in the browser,
+      # and the browser is not part of the docker network (i.e. you can't access 'rest-backend:8080')
+      - "8980:8980"
+      # We need to open this port to allow the desktop "medication taken" application to connect
+    depends_on:
+      - mysql
+      - rabbitmq
+
+  angular-frontend:
+    build: ./Angular Frontend
+    image: angular-frontend
+    restart: on-failure
+    ports:
+      - "80:80"
+      # Has to be open, though not necessarily on host port 80, so we can actually use the webapp
+    depends_on:
+      - rest-backend
+
+#  patient-activity-sensor:
+#    build: ./Patient Sensor
+#    image: patient-activity-sensor
+#    # No restart here - I think it's not needed
+#    depends_on:
+#      - rabbitmq
+#    environment:
+#      - sender.patient-id=1
+#      # Control to what patient the sensor records using this
+
+  soap-backend:
+    build: ./SOAP Backend
+    image: soap-backend
+    restart: on-failure
+    ports:
+      - "8099:8099"
+      # Should only remain while we want to test the SOAP service from the main PC
+    depends_on:
+      - mysql

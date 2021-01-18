@@ -1,0 +1,30 @@
+<div class="container mat-elevation-z8">
+  <div class="loading-shade"
+       *ngIf="isLoadingData">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/medications']"><mat-icon>arrow_back</mat-icon></a>
+  </div>
+  <mat-card class="card" *ngIf="medication">
+    <mat-card-header>
+      <mat-card-title><h2>{{medication.name}}</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <dt>Id:</dt>
+        <dd>{{medication.id}}</dd>
+        <dt>Dosage:</dt>
+        <dd>{{medication.dosage}}</dd>
+        <dt>Side effects:</dt>
+        <dd>{{medication.sideEffects}}</dd>
+      </dl>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" [routerLink]="['/medication-edit', medication.id]">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <a mat-flat-button color="warn" (click)="deleteCurrentMedication()"><mat-icon>delete</mat-icon></a>
+    </mat-card-actions>
+  </mat-card>
+</div>

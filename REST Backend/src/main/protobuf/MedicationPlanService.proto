@@ -1,0 +1,89 @@
+syntax = "proto3";
+option java_package = "ro.brinzas.rest_backend.grpc";
+option java_multiple_files = true;
+package ro.brinzas.grpc;
+
+// The files will still be generated in the /target folder
+// Because of that, we include the relevant /target folder in the Eclipse build path
+
+/**
+ * Generic empty message, just to not import the Google one
+ */
+message Empty {
+}
+
+/**
+ * Request from the client calling for the medication plans of a given patient active on a given day
+ * Will contain the id of the patient to search plans for.
+ * Will not contain the day for which to check for plans; it is implicitly assumed to be "today"
+ */
+message MedicationPlanRequest {
+	int64 patient_id = 1;
+}
+
+/**
+ * Response from the server providing the medication plans of a given patient active on a given day
+ * Will contain a list of medication plans
+ */
+message MedicationPlanResponse {
+	repeated MedicationPlanRPCDTO medication_plan = 1;
+}
+
+/**
+ * RPC DTO for a medication plan
+ * Will contain only a list of intake intervals
+ * (Other information not relevant for the client)
+ */
+message MedicationPlanRPCDTO {
+	int64 plan_id = 1;
+	repeated IntakeIntervalRPCDTO interval = 2;
+}
+
+/**
+ * RPC DTO for an intake interval
+ * Will contain a start and end time, as well as the medication to be taken
+ */
+message IntakeIntervalRPCDTO {
+	int64 interval_id = 1;
+	string startTime = 2;
+	string endTime = 3;
+	MedicationRPCDTO medication = 4;
+}
+
+/**
+ * RPC DTO for a medication
+ * Will contain a name, dosage and a description of possible side effects
+ */
+message MedicationRPCDTO {
+	int64 medication_id = 1;
+	string name = 2;
+	string dosage = 3;
+	string side_effects = 4;
+}
+
+/**
+ * Message from client informing that a patient has taken medication
+ * Will contain the id of the patient and the id of the relevant intake interval
+ * Will not contain the day when medication was taken; it is implicitly assumed to be "today"
+ */
+message MedicationTakenMessage {
+	int64 patient_id = 1;
+	int64 intake_interval_id = 2;
+}
+
+/**
+ * RPC service for requesting and returning medication plans for a patient and
+ * for other connected functions like marking a medication as taken
+ */
+service MedicationRPCService {
+
+	/**
+	 * Given a patient (via the request), returns the corresponding medication plans (via the response)
+	 */
+	rpc get_plans_for_patient(MedicationPlanRequest) returns (MedicationPlanResponse);
+	
+	/**
+	 * Notifies the server that the patient has taken the required medication for an intake interval
+	 */
+	rpc notify_medication_taken(MedicationTakenMessage) returns (Empty);
+}
