@@ -52,16 +52,6 @@ services:
     depends_on:
       - rest-backend
 
-#  patient-activity-sensor:
-#    build: ./Patient Sensor
-#    image: patient-activity-sensor
-#    # No restart here - I think it's not needed
-#    depends_on:
-#      - rabbitmq
-#    environment:
-#      - sender.patient-id=1
-#      # Control to what patient the sensor records using this
-
   soap-backend:
     build: ./SOAP Backend
     image: soap-backend

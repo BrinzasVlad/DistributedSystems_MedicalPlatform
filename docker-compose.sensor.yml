@@ -1,0 +1,12 @@
+
+version: "3.8"
+services:
+  patient-activity-sensor:
+    build: ./Patient Sensor
+    image: patient-activity-sensor
+    restart: on-failure # Restart as a hack to try until RabbitMQ is up and running
+    depends_on:
+      - rabbitmq
+    environment:
+      - sender.patient-id=1
+      # Control to what patient the sensor records using this
