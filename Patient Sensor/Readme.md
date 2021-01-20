@@ -20,6 +20,8 @@ thresholds are) is hardcoded into the server. Future versions of the software sh
 ### Usage
 
 To use a sensor instance, the user should first specify the ID of the patient to which the sensor is associated by setting the `sender.patient-id` variable. This can be set
-directly from Docker-Compose by editing its value in the `docker-compose.yml` file. A second option is to specify the ID in `application.properties`.
+directly from Docker-Compose by editing its value in the `docker-compose.sensor.yml` file. A second option is to specify the ID in `application.properties`.
 
-Once the patient's ID has been set, the component can be started with `docker-compose up patient-activity-sensor`.
+Once the patient's ID has been set, the component can be started with `docker-compose -f docker-compose.yml -f docker-compose.sensor.yml up patient-activity-sensor`.
+Alternatively, to have the sensor component start at the same time as the other components, one may launch everything by running `docker-compose -f docker-compose.yml
+-f docker-compose.sensor.yml up`
