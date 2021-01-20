@@ -18,7 +18,6 @@ services:
     volumes:
       - data-volume:/var/lib/mysql
       - ./MySQL/medical-platform-db-dump.sql:/docker-entrypoint-initdb.d/db-dump.sql
-      # FIXME: fix the timing requirements for this to work without being run ahead-of-time once
 
   rabbitmq:
     image: rabbitmq:management-alpine
