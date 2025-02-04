@@ -84,7 +84,7 @@ import { PatientMedicationDetailComponent } from './patient/patient-medication-d
     MatListModule,
     MatSlideToggleModule,
     MatExpansionModule,
-    GoogleChartsModule.forRoot()
+    // GoogleChartsModule.forRoot()
   ],
   providers: [
     DatePipe,
