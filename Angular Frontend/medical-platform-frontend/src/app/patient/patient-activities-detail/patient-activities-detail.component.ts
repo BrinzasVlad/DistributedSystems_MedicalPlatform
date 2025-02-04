@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivityService } from 'src/app/services/activity.service';
 import { Activity } from 'src/app/model/activity';
-import { PageEvent, MatSelectChange } from '@angular/material';
+import { PageEvent } from '@angular/material/paginator';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-patient-activities-detail',

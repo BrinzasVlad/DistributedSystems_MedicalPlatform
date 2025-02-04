@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MedicationTakenService } from 'src/app/services/medication-taken.service';
 import { MedicationTaken } from 'src/app/model/medicationTaken';
-import { MatSelectChange } from '@angular/material';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-patient-medication-detail',
