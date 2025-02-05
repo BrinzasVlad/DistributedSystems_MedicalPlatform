@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MedicationService } from 'src/app/services/medication.service';
 
@@ -10,10 +10,10 @@ import { MedicationService } from 'src/app/services/medication.service';
 })
 export class MedicationEditComponent implements OnInit {
 
-  medicationForm: FormGroup;
+  medicationForm: UntypedFormGroup;
   isProcessing = true;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private medicationService: MedicationService,
               private route: ActivatedRoute,
               private router: Router) { }

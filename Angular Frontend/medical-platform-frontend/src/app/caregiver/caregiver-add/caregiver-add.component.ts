@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { CaregiverService } from 'src/app/services/caregiver.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
@@ -12,12 +12,12 @@ import { Caregiver } from 'src/app/model/caregiver';
 })
 export class CaregiverAddComponent implements OnInit {
 
-  caregiverForm: FormGroup;
+  caregiverForm: UntypedFormGroup;
   maxDate = new Date(); // No caregivers born in the future
 
   isSendingData = false;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private caregiverService: CaregiverService,
               private router: Router,
               private datePipe: DatePipe) { }

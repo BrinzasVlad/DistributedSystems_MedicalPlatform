@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { CaregiverService } from 'src/app/services/caregiver.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
@@ -14,7 +14,7 @@ import { PatientService } from 'src/app/services/patient.service';
 })
 export class CaregiverEditComponent implements OnInit {
 
-  caregiverForm: FormGroup;
+  caregiverForm: UntypedFormGroup;
   maxDate = new Date(); // No caregivers born in the future
 
   allPatients: Patient[];
@@ -22,7 +22,7 @@ export class CaregiverEditComponent implements OnInit {
 
   isProcessing = true; // Actually a lie, because we set it to false in two places at once
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private patientService: PatientService,
               private caregiverService: CaregiverService,
               private route: ActivatedRoute,

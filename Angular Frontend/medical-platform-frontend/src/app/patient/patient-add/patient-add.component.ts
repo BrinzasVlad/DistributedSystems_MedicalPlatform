@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PatientService } from '../../services/patient.service';
 import { Patient } from '../../model/patient';
@@ -12,12 +12,12 @@ import { DatePipe } from '@angular/common';
 })
 export class PatientAddComponent implements OnInit {
 
-  patientForm: FormGroup;
+  patientForm: UntypedFormGroup;
   maxDate = new Date(); // No patients born in the future
 
   isSendingData = false;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private patientService: PatientService,
               private router: Router,
               private datePipe: DatePipe) { }
