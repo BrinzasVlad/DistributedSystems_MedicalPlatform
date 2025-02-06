@@ -28,7 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { MedicationEditComponent } from './medication/medication-edit/medication-edit.component';
 import { PatientsComponent } from './patient/patients/patients.component';
 import { PatientDetailComponent } from './patient/patient-detail/patient-detail.component';
@@ -42,54 +42,47 @@ import { CaregiverEditComponent } from './caregiver/caregiver-edit/caregiver-edi
 import { PatientActivitiesDetailComponent } from './patient/patient-activities-detail/patient-activities-detail.component';
 import { PatientMedicationDetailComponent } from './patient/patient-medication-detail/patient-medication-detail.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    MedicationsComponent,
-    MedicationDetailComponent,
-    MedicationAddComponent,
-    HomeComponent,
-    MedicationEditComponent,
-    PatientsComponent,
-    PatientDetailComponent,
-    PatientEditComponent,
-    PatientAddComponent,
-    CaregiversComponent,
-    CaregiverDetailComponent,
-    CaregiverAddComponent,
-    CaregiverEditComponent,
-    PatientActivitiesDetailComponent,
-    PatientMedicationDetailComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    MatGridListModule,
-    MatListModule,
-    MatSlideToggleModule,
-    MatExpansionModule,
-    // GoogleChartsModule.forRoot()
-  ],
-  providers: [
-    DatePipe,
-    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        MedicationsComponent,
+        MedicationDetailComponent,
+        MedicationAddComponent,
+        HomeComponent,
+        MedicationEditComponent,
+        PatientsComponent,
+        PatientDetailComponent,
+        PatientEditComponent,
+        PatientAddComponent,
+        CaregiversComponent,
+        CaregiverDetailComponent,
+        CaregiverAddComponent,
+        CaregiverEditComponent,
+        PatientActivitiesDetailComponent,
+        PatientMedicationDetailComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressSpinnerModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        MatGridListModule,
+        MatListModule,
+        MatSlideToggleModule,
+        MatExpansionModule], providers: [
+        DatePipe,
+        { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
