@@ -13,13 +13,13 @@
     </mat-form-field>
 
     <div *ngIf="stackedData && stackedData.length">
-        <google-chart class = "chart"
+        <!-- <google-chart class = "chart"
             [type] = "'BarChart'"
             [columnNames] = "stackedColumns"
             [data] = "stackedData"
             [dynamicResize] = "true"
             [options] = "stackedOptions">
-        </google-chart>
+        </google-chart> -->
     </div>
     <div *ngIf="!stackedData || !stackedData.length">
         <h4>There is no medication data to display</h4>

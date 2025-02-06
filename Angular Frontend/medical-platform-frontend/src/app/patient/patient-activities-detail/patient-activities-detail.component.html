@@ -5,12 +5,12 @@
 <div *ngIf="timelineData && timelineData.length">
     <h3>Activity 24-hour Timeline</h3>
 
-    <google-chart class = "chart"
+    <!-- <google-chart class = "chart"
         [type] = "'Timeline'"
         [data] = "timelineData"
         [dynamicResize] = "true"
         [options] = "timelineOptions">
-    </google-chart>
+    </google-chart> -->
 </div>
 <div *ngIf="patientActivities && !timelineData.length">
     <h3>Activity 24-hour Timeline</h3>
@@ -28,12 +28,12 @@
         </mat-select>
     </mat-form-field>
 
-    <google-chart class = "chart"
+    <!-- <google-chart class = "chart"
         [type] = "'ColumnChart'"
         [data] = "columnData"
         [dynamicResize] = "true"
         [options] = "columnOptions">
-    </google-chart>
+    </google-chart> -->
     <!-- TODO: Angular Google Chart Advanced (in the Readme) -> Get access to the control wrappers, add bars -->
 </div>
 <div *ngIf="pieData">
@@ -48,12 +48,12 @@
         </mat-select>
     </mat-form-field>
 
-    <google-chart class = "chart"
+    <!-- <google-chart class = "chart"
         [type] = "'PieChart'"
         [data] = "pieData"
         [dynamicResize] = "true"
         [options] = "pieOptions">
-    </google-chart>
+    </google-chart> -->
 
     <div *ngIf="!patientActivities"> <br> We have retrieved no activities for this patient yet. <br> </div>
 
