@@ -2,6 +2,6 @@
     width: 100%;
 }
 
-.mat-row.hovered {
+.mat-mdc-row.hovered {
   background: #eee;
 }

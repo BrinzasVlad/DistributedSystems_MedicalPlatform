@@ -6,7 +6,7 @@
   <div class="button-row">
     <a mat-flat-button color="primary" [routerLink]="['/caregivers']"><mat-icon>arrow_back</mat-icon></a>
   </div>
-  <mat-card class="card" *ngIf="caregiver">
+  <mat-card appearance="outlined" class="card" *ngIf="caregiver">
     <mat-card-header>
       <mat-card-title><h2>{{caregiver.name}}</h2></mat-card-title>
     </mat-card-header>

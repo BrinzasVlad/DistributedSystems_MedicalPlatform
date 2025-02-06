@@ -16,7 +16,7 @@
   justify-content: center;
 }
 
-.mat-flat-button {
+.mat-mdc-unelevated-button {
   margin: 5px;
 }
 
@@ -24,7 +24,7 @@ dl {
   padding: 0.5em;
 }
 
-.mat-list-item span {
+.mat-mdc-list-item span {
   font-weight: bold;
   color: rgb(80, 80, 255);
 }

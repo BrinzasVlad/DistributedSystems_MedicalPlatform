@@ -6,7 +6,7 @@
   <div class="button-row">
     <a mat-flat-button color="primary" [routerLink]="['/medications']"><mat-icon>arrow_back</mat-icon></a>
   </div>
-  <mat-card class="card">
+  <mat-card appearance="outlined" class="card">
     <form [formGroup]="medicationForm" (ngSubmit)="onFormSubmit()">
       <mat-form-field class="full-width">
         <input matInput placeholder="Name" formControlName="name">
