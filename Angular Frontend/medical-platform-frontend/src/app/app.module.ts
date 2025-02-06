@@ -10,7 +10,7 @@ import { MedicationAddComponent } from './medication/medication-add/medication-a
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 
-// import { GoogleChartsModule } from 'angular-google-charts';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -80,7 +80,8 @@ import { PatientMedicationDetailComponent } from './patient/patient-medication-d
         MatGridListModule,
         MatListModule,
         MatSlideToggleModule,
-        MatExpansionModule], providers: [
+        MatExpansionModule,
+        GoogleChartsModule], providers: [
         DatePipe,
         { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
         provideHttpClient(withInterceptorsFromDi())
