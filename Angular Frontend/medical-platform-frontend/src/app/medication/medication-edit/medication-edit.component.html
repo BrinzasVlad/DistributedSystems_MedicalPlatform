@@ -9,7 +9,7 @@
   <mat-card class="card">
     <form [formGroup]="medicationForm" (ngSubmit)="onFormSubmit()">
       <mat-form-field class="full-width">
-        <input matInput placeholder="Name" formControlName="name" [errorStateMatcher]="matcher">
+        <input matInput placeholder="Name" formControlName="name">
         <mat-error>
           <span *ngIf="!medicationForm.get('name').valid && medicationForm.get('name').touched">
             Please enter medication name
@@ -17,7 +17,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Dosage" formControlName="dosage" [errorStateMatcher]="matcher">
+        <input matInput placeholder="Dosage" formControlName="dosage">
         <mat-error>
           <span *ngIf="!medicationForm.get('dosage').valid && medicationForm.get('dosage').touched">
             Please correct medicaton dosage
@@ -25,8 +25,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Side effects" formControlName="sideEffects"
-               [errorStateMatcher]="matcher">
+        <input matInput placeholder="Side effects" formControlName="sideEffects">
         <mat-error>
           <span *ngIf="!medicationForm.get('sideEffects').valid && medicationForm.get('sideEffects').touched">
             Please correct side effects

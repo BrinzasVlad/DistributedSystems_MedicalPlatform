@@ -9,7 +9,7 @@
   <mat-card class="card">
     <form [formGroup]="caregiverForm" (ngSubmit)="onFormSubmit()">
       <mat-form-field class="full-width">
-        <input matInput placeholder="Name" formControlName="name" [errorStateMatcher]="matcher">
+        <input matInput placeholder="Name" formControlName="name">
         <mat-error>
           <span *ngIf="!caregiverForm.get('name').valid && caregiverForm.get('name').touched">
             Please enter caregiver name
@@ -29,7 +29,7 @@
           </mat-select>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Address" formControlName="address" [errorStateMatcher]="matcher">
+        <input matInput placeholder="Address" formControlName="address">
         <mat-error>
           <span *ngIf="!caregiverForm.get('address').valid && caregiverForm.get('address').touched">
             Please correct caregiver address
