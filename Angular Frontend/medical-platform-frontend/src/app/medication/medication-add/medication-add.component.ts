@@ -5,9 +5,10 @@ import { Medication } from 'src/app/model/medication';
 import { MedicationService } from 'src/app/services/medication.service';
 
 @Component({
-  selector: 'app-medication-add',
-  templateUrl: './medication-add.component.html',
-  styleUrls: ['./medication-add.component.css']
+    selector: 'app-medication-add',
+    templateUrl: './medication-add.component.html',
+    styleUrls: ['./medication-add.component.css'],
+    standalone: false
 })
 export class MedicationAddComponent implements OnInit {
 

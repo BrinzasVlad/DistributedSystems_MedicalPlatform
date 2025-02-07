@@ -8,9 +8,10 @@ import { Patient } from 'src/app/model/patient';
 import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
-  selector: 'app-caregiver-edit',
-  templateUrl: './caregiver-edit.component.html',
-  styleUrls: ['./caregiver-edit.component.css']
+    selector: 'app-caregiver-edit',
+    templateUrl: './caregiver-edit.component.html',
+    styleUrls: ['./caregiver-edit.component.css'],
+    standalone: false
 })
 export class CaregiverEditComponent implements OnInit {
 

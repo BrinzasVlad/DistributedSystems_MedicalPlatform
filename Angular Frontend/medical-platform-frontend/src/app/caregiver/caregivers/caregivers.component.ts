@@ -3,9 +3,10 @@ import { Caregiver } from '../../model/caregiver';
 import { CaregiverService } from '../../services/caregiver.service';
 
 @Component({
-  selector: 'app-caregivers',
-  templateUrl: './caregivers.component.html',
-  styleUrls: ['./caregivers.component.css']
+    selector: 'app-caregivers',
+    templateUrl: './caregivers.component.html',
+    styleUrls: ['./caregivers.component.css'],
+    standalone: false
 })
 export class CaregiversComponent implements OnInit {
 

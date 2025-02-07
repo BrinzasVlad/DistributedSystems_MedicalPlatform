@@ -4,9 +4,10 @@ import { MedicationTaken } from 'src/app/model/medicationTaken';
 import { MatSelectChange } from '@angular/material/select';
 
 @Component({
-  selector: 'app-patient-medication-detail',
-  templateUrl: './patient-medication-detail.component.html',
-  styleUrls: ['./patient-medication-detail.component.css']
+    selector: 'app-patient-medication-detail',
+    templateUrl: './patient-medication-detail.component.html',
+    styleUrls: ['./patient-medication-detail.component.css'],
+    standalone: false
 })
 export class PatientMedicationDetailComponent implements OnInit {
 

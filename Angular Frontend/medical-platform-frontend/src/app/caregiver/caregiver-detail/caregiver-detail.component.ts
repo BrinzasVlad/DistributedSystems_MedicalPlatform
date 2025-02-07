@@ -4,9 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CaregiverService } from 'src/app/services/caregiver.service';
 
 @Component({
-  selector: 'app-caregiver-detail',
-  templateUrl: './caregiver-detail.component.html',
-  styleUrls: ['./caregiver-detail.component.css']
+    selector: 'app-caregiver-detail',
+    templateUrl: './caregiver-detail.component.html',
+    styleUrls: ['./caregiver-detail.component.css'],
+    standalone: false
 })
 export class CaregiverDetailComponent implements OnInit {
 

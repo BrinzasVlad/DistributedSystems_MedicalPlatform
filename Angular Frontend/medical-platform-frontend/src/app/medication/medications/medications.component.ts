@@ -3,9 +3,10 @@ import { Medication } from '../../model/medication';
 import { MedicationService } from 'src/app/services/medication.service';
 
 @Component({
-  selector: 'app-medications',
-  templateUrl: './medications.component.html',
-  styleUrls: ['./medications.component.css']
+    selector: 'app-medications',
+    templateUrl: './medications.component.html',
+    styleUrls: ['./medications.component.css'],
+    standalone: false
 })
 export class MedicationsComponent implements OnInit {
 

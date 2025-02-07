@@ -4,9 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MedicationService } from 'src/app/services/medication.service';
 
 @Component({
-  selector: 'app-medication-edit',
-  templateUrl: './medication-edit.component.html',
-  styleUrls: ['./medication-edit.component.css']
+    selector: 'app-medication-edit',
+    templateUrl: './medication-edit.component.html',
+    styleUrls: ['./medication-edit.component.css'],
+    standalone: false
 })
 export class MedicationEditComponent implements OnInit {
 

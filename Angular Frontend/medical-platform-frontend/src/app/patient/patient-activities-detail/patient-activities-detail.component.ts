@@ -5,9 +5,10 @@ import { PageEvent } from '@angular/material/paginator';
 import { MatSelectChange } from '@angular/material/select';
 
 @Component({
-  selector: 'app-patient-activities-detail',
-  templateUrl: './patient-activities-detail.component.html',
-  styleUrls: ['./patient-activities-detail.component.css']
+    selector: 'app-patient-activities-detail',
+    templateUrl: './patient-activities-detail.component.html',
+    styleUrls: ['./patient-activities-detail.component.css'],
+    standalone: false
 })
 export class PatientActivitiesDetailComponent implements OnInit {
 

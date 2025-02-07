@@ -6,9 +6,10 @@ import { DatePipe } from '@angular/common';
 import { Caregiver } from 'src/app/model/caregiver';
 
 @Component({
-  selector: 'app-caregiver-add',
-  templateUrl: './caregiver-add.component.html',
-  styleUrls: ['./caregiver-add.component.css']
+    selector: 'app-caregiver-add',
+    templateUrl: './caregiver-add.component.html',
+    styleUrls: ['./caregiver-add.component.css'],
+    standalone: false
 })
 export class CaregiverAddComponent implements OnInit {
 

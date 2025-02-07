@@ -4,9 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MedicationService } from 'src/app/services/medication.service';
 
 @Component({
-  selector: 'app-medication-detail',
-  templateUrl: './medication-detail.component.html',
-  styleUrls: ['./medication-detail.component.css']
+    selector: 'app-medication-detail',
+    templateUrl: './medication-detail.component.html',
+    styleUrls: ['./medication-detail.component.css'],
+    standalone: false
 })
 export class MedicationDetailComponent implements OnInit {
 

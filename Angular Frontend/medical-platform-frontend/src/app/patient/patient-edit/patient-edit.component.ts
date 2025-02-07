@@ -6,9 +6,10 @@ import { DatePipe } from '@angular/common';
 import { Patient } from '../../model/patient';
 
 @Component({
-  selector: 'app-patient-edit',
-  templateUrl: './patient-edit.component.html',
-  styleUrls: ['./patient-edit.component.css']
+    selector: 'app-patient-edit',
+    templateUrl: './patient-edit.component.html',
+    styleUrls: ['./patient-edit.component.css'],
+    standalone: false
 })
 export class PatientEditComponent implements OnInit {
 
