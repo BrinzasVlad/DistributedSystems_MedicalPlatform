@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Caregiver } from 'src/app/model/caregiver';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CaregiverService } from 'src/app/services/caregiver.service';
+import { NgIf, NgFor } from '@angular/common';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatAnchor } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
+import { MatList, MatListItem } from '@angular/material/list';
 
 @Component({
     selector: 'app-caregiver-detail',
     templateUrl: './caregiver-detail.component.html',
     styleUrls: ['./caregiver-detail.component.css'],
-    standalone: false
+    imports: [NgIf, MatProgressSpinner, MatAnchor, RouterLink, MatIcon, MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatList, MatListItem, NgFor, MatCardActions]
 })
 export class CaregiverDetailComponent implements OnInit {
 

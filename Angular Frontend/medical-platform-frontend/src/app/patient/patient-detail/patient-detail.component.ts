@@ -1,13 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Patient } from '../../model/patient';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PatientService } from '../../services/patient.service';
+import { NgIf } from '@angular/common';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatAnchor } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
+import { MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle } from '@angular/material/expansion';
+import { PatientActivitiesDetailComponent } from '../patient-activities-detail/patient-activities-detail.component';
+import { PatientMedicationDetailComponent } from '../patient-medication-detail/patient-medication-detail.component';
 
 @Component({
     selector: 'app-patient-detail',
     templateUrl: './patient-detail.component.html',
     styleUrls: ['./patient-detail.component.css'],
-    standalone: false
+    imports: [NgIf, MatProgressSpinner, MatAnchor, RouterLink, MatIcon, MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, PatientActivitiesDetailComponent, PatientMedicationDetailComponent, MatCardActions]
 })
 export class PatientDetailComponent implements OnInit {
 

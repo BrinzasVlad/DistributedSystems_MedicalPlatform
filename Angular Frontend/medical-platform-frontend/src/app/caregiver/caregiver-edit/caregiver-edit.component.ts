@@ -1,17 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CaregiverService } from 'src/app/services/caregiver.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { DatePipe, NgIf, NgFor } from '@angular/common';
 import { Caregiver } from 'src/app/model/caregiver';
 import { Patient } from 'src/app/model/patient';
 import { PatientService } from 'src/app/services/patient.service';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatAnchor, MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatCard } from '@angular/material/card';
+import { MatFormField, MatError, MatSuffix } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatDatepickerInput, MatDatepickerToggle, MatDatepicker } from '@angular/material/datepicker';
+import { MatSelect } from '@angular/material/select';
+import { MatOption } from '@angular/material/core';
+import { MatSelectionList, MatListOption } from '@angular/material/list';
 
 @Component({
     selector: 'app-caregiver-edit',
     templateUrl: './caregiver-edit.component.html',
     styleUrls: ['./caregiver-edit.component.css'],
-    standalone: false
+    imports: [NgIf, MatProgressSpinner, MatAnchor, RouterLink, MatIcon, MatCard, FormsModule, ReactiveFormsModule, MatFormField, MatInput, MatError, MatDatepickerInput, MatDatepickerToggle, MatSuffix, MatDatepicker, MatSelect, MatOption, MatSelectionList, NgFor, MatListOption, MatButton]
 })
 export class CaregiverEditComponent implements OnInit {
 

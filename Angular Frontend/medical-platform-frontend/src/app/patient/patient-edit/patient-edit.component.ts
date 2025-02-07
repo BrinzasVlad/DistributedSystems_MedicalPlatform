@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientService } from '../../services/patient.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { DatePipe, NgIf } from '@angular/common';
 import { Patient } from '../../model/patient';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatAnchor, MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatCard } from '@angular/material/card';
+import { MatFormField, MatError, MatSuffix } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatDatepickerInput, MatDatepickerToggle, MatDatepicker } from '@angular/material/datepicker';
+import { MatSelect } from '@angular/material/select';
+import { MatOption } from '@angular/material/core';
 
 @Component({
     selector: 'app-patient-edit',
     templateUrl: './patient-edit.component.html',
     styleUrls: ['./patient-edit.component.css'],
-    standalone: false
+    imports: [NgIf, MatProgressSpinner, MatAnchor, RouterLink, MatIcon, MatCard, FormsModule, ReactiveFormsModule, MatFormField, MatInput, MatError, MatDatepickerInput, MatDatepickerToggle, MatSuffix, MatDatepicker, MatSelect, MatOption, MatButton]
 })
 export class PatientEditComponent implements OnInit {
 

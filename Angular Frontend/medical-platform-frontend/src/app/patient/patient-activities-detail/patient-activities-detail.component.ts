@@ -1,14 +1,24 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivityService } from 'src/app/services/activity.service';
 import { Activity } from 'src/app/model/activity';
-import { PageEvent } from '@angular/material/paginator';
-import { MatSelectChange } from '@angular/material/select';
+import { PageEvent, MatPaginator } from '@angular/material/paginator';
+import { MatSelectChange, MatSelect } from '@angular/material/select';
+import { NgIf, NgFor, NgClass, DatePipe } from '@angular/common';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatOption } from '@angular/material/core';
+import { MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow } from '@angular/material/table';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { MatInput } from '@angular/material/input';
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 
 @Component({
     selector: 'app-patient-activities-detail',
     templateUrl: './patient-activities-detail.component.html',
     styleUrls: ['./patient-activities-detail.component.css'],
-    standalone: false
+    imports: [NgIf, MatProgressSpinner, GoogleChartsModule, MatFormField, MatLabel, MatSelect, FormsModule, NgFor, MatOption, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatSlideToggle, MatInput, CdkTextareaAutosize, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, NgClass, MatPaginator, DatePipe]
 })
 export class PatientActivitiesDetailComponent implements OnInit {
 

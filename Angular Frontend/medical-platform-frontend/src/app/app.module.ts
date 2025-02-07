@@ -42,24 +42,7 @@ import { CaregiverEditComponent } from './caregiver/caregiver-edit/caregiver-edi
 import { PatientActivitiesDetailComponent } from './patient/patient-activities-detail/patient-activities-detail.component';
 import { PatientMedicationDetailComponent } from './patient/patient-medication-detail/patient-medication-detail.component';
 
-@NgModule({ declarations: [
-        AppComponent,
-        MedicationsComponent,
-        MedicationDetailComponent,
-        MedicationAddComponent,
-        HomeComponent,
-        MedicationEditComponent,
-        PatientsComponent,
-        PatientDetailComponent,
-        PatientEditComponent,
-        PatientAddComponent,
-        CaregiversComponent,
-        CaregiverDetailComponent,
-        CaregiverAddComponent,
-        CaregiverEditComponent,
-        PatientActivitiesDetailComponent,
-        PatientMedicationDetailComponent
-    ],
+@NgModule({ declarations: [AppComponent],
     bootstrap: [AppComponent], imports: [BrowserModule,
         FormsModule,
         AppRoutingModule,
@@ -81,7 +64,21 @@ import { PatientMedicationDetailComponent } from './patient/patient-medication-d
         MatListModule,
         MatSlideToggleModule,
         MatExpansionModule,
-        GoogleChartsModule], providers: [
+        GoogleChartsModule, MedicationsComponent,
+        MedicationDetailComponent,
+        MedicationAddComponent,
+        HomeComponent,
+        MedicationEditComponent,
+        PatientsComponent,
+        PatientDetailComponent,
+        PatientEditComponent,
+        PatientAddComponent,
+        CaregiversComponent,
+        CaregiverDetailComponent,
+        CaregiverAddComponent,
+        CaregiverEditComponent,
+        PatientActivitiesDetailComponent,
+        PatientMedicationDetailComponent], providers: [
         DatePipe,
         { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
         provideHttpClient(withInterceptorsFromDi())

@@ -8,8 +8,8 @@ describe('CaregiverDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CaregiverDetailComponent ]
-    })
+    imports: [CaregiverDetailComponent]
+})
     .compileComponents();
   }));
 

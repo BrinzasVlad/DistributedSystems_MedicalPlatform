@@ -1,13 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MedicationTakenService } from 'src/app/services/medication-taken.service';
 import { MedicationTaken } from 'src/app/model/medicationTaken';
-import { MatSelectChange } from '@angular/material/select';
+import { MatSelectChange, MatSelect } from '@angular/material/select';
+import { NgIf, NgFor, NgClass } from '@angular/common';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatOption } from '@angular/material/core';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow } from '@angular/material/table';
 
 @Component({
     selector: 'app-patient-medication-detail',
     templateUrl: './patient-medication-detail.component.html',
     styleUrls: ['./patient-medication-detail.component.css'],
-    standalone: false
+    imports: [NgIf, MatProgressSpinner, MatFormField, MatLabel, MatSelect, FormsModule, NgFor, MatOption, GoogleChartsModule, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow, NgClass]
 })
 export class PatientMedicationDetailComponent implements OnInit {
 
