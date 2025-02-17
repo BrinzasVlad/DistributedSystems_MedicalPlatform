@@ -148,8 +148,12 @@ export class PatientActivitiesDetailComponent implements OnInit {
 
     // Sort alphabetically by name, to be pretty
     this.columnData.sort((first, second) => first[0].localeCompare(second[0]));
-
-    this.columnOptions.width = this.columnWidthForScale + this.columnWidthPerEntry * this.columnData.length;
+    
+    this.columnOptions = {
+      ...this.columnOptions,
+      width: this.columnWidthForScale + this.columnWidthPerEntry * this.columnData.length
+    };
+    // this.columnOptions.width = this.columnWidthForScale + this.columnWidthPerEntry * this.columnData.length;
   }
 
   generateActivityBreakdown(activities: Activity[], timeframeMillis: number) {
