@@ -7,14 +7,14 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatAnchor, MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatCard } from '@angular/material/card';
-import { MatFormField, MatError } from '@angular/material/form-field';
+import { MatFormField, MatError, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 
 @Component({
     selector: 'app-medication-edit',
     templateUrl: './medication-edit.component.html',
     styleUrls: ['./medication-edit.component.css'],
-    imports: [NgIf, MatProgressSpinner, MatAnchor, RouterLink, MatIcon, MatCard, FormsModule, ReactiveFormsModule, MatFormField, MatInput, MatError, MatButton]
+    imports: [NgIf, MatProgressSpinner, MatAnchor, RouterLink, MatIcon, MatCard, FormsModule, ReactiveFormsModule, MatFormField, MatLabel, MatInput, MatError, MatButton]
 })
 export class MedicationEditComponent implements OnInit {
 

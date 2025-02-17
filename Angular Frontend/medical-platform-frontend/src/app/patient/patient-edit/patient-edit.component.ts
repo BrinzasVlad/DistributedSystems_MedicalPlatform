@@ -8,7 +8,7 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatAnchor, MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatCard } from '@angular/material/card';
-import { MatFormField, MatError, MatSuffix } from '@angular/material/form-field';
+import { MatFormField, MatError, MatSuffix, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatDatepickerInput, MatDatepickerToggle, MatDatepicker } from '@angular/material/datepicker';
 import { MatSelect } from '@angular/material/select';
@@ -18,7 +18,7 @@ import { MatOption } from '@angular/material/core';
     selector: 'app-patient-edit',
     templateUrl: './patient-edit.component.html',
     styleUrls: ['./patient-edit.component.css'],
-    imports: [NgIf, MatProgressSpinner, MatAnchor, RouterLink, MatIcon, MatCard, FormsModule, ReactiveFormsModule, MatFormField, MatInput, MatError, MatDatepickerInput, MatDatepickerToggle, MatSuffix, MatDatepicker, MatSelect, MatOption, MatButton]
+    imports: [NgIf, MatProgressSpinner, MatAnchor, RouterLink, MatIcon, MatCard, FormsModule, ReactiveFormsModule, MatFormField, MatLabel, MatInput, MatError, MatDatepickerInput, MatDatepickerToggle, MatSuffix, MatDatepicker, MatSelect, MatOption, MatButton]
 })
 export class PatientEditComponent implements OnInit {
 

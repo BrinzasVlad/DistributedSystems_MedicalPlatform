@@ -10,7 +10,7 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatAnchor, MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatCard } from '@angular/material/card';
-import { MatFormField, MatError, MatSuffix } from '@angular/material/form-field';
+import { MatFormField, MatError, MatSuffix, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatDatepickerInput, MatDatepickerToggle, MatDatepicker } from '@angular/material/datepicker';
 import { MatSelect } from '@angular/material/select';
@@ -21,7 +21,7 @@ import { MatSelectionList, MatListOption } from '@angular/material/list';
     selector: 'app-caregiver-edit',
     templateUrl: './caregiver-edit.component.html',
     styleUrls: ['./caregiver-edit.component.css'],
-    imports: [NgIf, MatProgressSpinner, MatAnchor, RouterLink, MatIcon, MatCard, FormsModule, ReactiveFormsModule, MatFormField, MatInput, MatError, MatDatepickerInput, MatDatepickerToggle, MatSuffix, MatDatepicker, MatSelect, MatOption, MatSelectionList, NgFor, MatListOption, MatButton]
+    imports: [NgIf, MatProgressSpinner, MatAnchor, RouterLink, MatIcon, MatCard, FormsModule, ReactiveFormsModule, MatFormField, MatLabel, MatInput, MatError, MatDatepickerInput, MatDatepickerToggle, MatSuffix, MatDatepicker, MatSelect, MatOption, MatSelectionList, NgFor, MatListOption, MatButton]
 })
 export class CaregiverEditComponent implements OnInit {
 

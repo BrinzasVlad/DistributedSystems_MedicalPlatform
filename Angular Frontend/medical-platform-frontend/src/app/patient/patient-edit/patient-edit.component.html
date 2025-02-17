@@ -8,8 +8,9 @@
   </div>
   <mat-card appearance="outlined" class="card">
     <form [formGroup]="patientForm" (ngSubmit)="onFormSubmit()">
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Name" formControlName="name">
+      <mat-form-field hideRequiredMarker class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
         <mat-error>
           <span *ngIf="!patientForm.get('name').valid && patientForm.get('name').touched">
             Please enter patient name
@@ -17,19 +18,22 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput [matDatepicker]="birthDatePicker" [max]="maxDate" placeholder="Birth date" formControlName="birthDate">
+        <mat-label>Birth date</mat-label>
+        <input matInput [matDatepicker]="birthDatePicker" [max]="maxDate" formControlName="birthDate">
         <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #birthDatePicker startView="multi-year"></mat-datepicker>
       </mat-form-field>
       <mat-form-field class="full-width">
-          <mat-select placeholder="Gender" formControlName="gender">
-              <mat-option value="Male">Male</mat-option>
-              <mat-option value="Female">Female</mat-option>
-              <mat-option value="Other">Other</mat-option>
-          </mat-select>
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Other">Other</mat-option>
+        </mat-select>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Address" formControlName="address">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address">
         <mat-error>
           <span *ngIf="!patientForm.get('address').valid && patientForm.get('address').touched">
             Please correct patient address

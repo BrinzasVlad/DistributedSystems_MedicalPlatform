@@ -14,7 +14,9 @@ export class AppComponent {
 // Known TODOs:
 // - fix Angular Material v15 appearance changes; in extra particular:
 // - - fix form input labels no longer minimizing to the top
+// - - - FIXED
 // - - fix input fields having solid background
+// - - - FIXED, -ish; when selected they still get a solid background, which looks good everywhere except in the patient activities table textarea, where it highlights how it doesn't actually reach all the way down
 // - smaller Material issues:
 // - - material icon buttons have the icons smaller and less centred now
 // - - - FIXED, -ish; edit/delete buttons are not caught in the current iteration, but they... kinda' look good like that?

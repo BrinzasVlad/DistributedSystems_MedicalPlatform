@@ -5,6 +5,9 @@
     filled-icon-spacing: 0,
     filled-icon-offset: 0,
   ));
+  @include mat.form-field-overrides((
+    filled-container-color: transparent,
+  ));
 }
 
 .button-row > .mat-mdc-unelevated-button > .mat-icon {
