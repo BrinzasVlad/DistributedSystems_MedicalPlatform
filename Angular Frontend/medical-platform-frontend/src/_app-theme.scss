@@ -1,0 +1,14 @@
+@use '@angular/material' as mat;
+
+:root {
+  @include mat.button-overrides((
+    filled-icon-spacing: 0,
+    filled-icon-offset: 0,
+  ));
+}
+
+.button-row > .mat-mdc-unelevated-button > .mat-icon {
+  font-size: 24px;
+  height: 24px;
+  width: 24px;
+}

@@ -17,6 +17,7 @@ export class AppComponent {
 // - - fix input fields having solid background
 // - smaller Material issues:
 // - - material icon buttons have the icons smaller and less centred now
+// - - - FIXED, -ish; edit/delete buttons are not caught in the current iteration, but they... kinda' look good like that?
 // - - spacing changed somewhat (tables have less padding, detail pages have too much padding under title)
 // - - openable folders under patient-detail are now bold, which looks a bit too strong
 // - - Activity History table in patient-detail is now a bit too tight, leading to ugly word-wrap
