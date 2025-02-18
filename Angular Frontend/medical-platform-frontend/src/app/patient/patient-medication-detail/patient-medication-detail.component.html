@@ -25,33 +25,33 @@
         <h4>There is no medication data to display</h4>
     </div>
 
-    <mat-table #table [dataSource]="medicationsTaken" *ngIf="medicationsTaken && medicationsTaken.length">
+    <table mat-table [dataSource]="medicationsTaken" *ngIf="medicationsTaken && medicationsTaken.length">
         
         <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-            <mat-cell *matCellDef="let taken"> {{taken.medicationName}} </mat-cell>
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let taken"> {{taken.medicationName}} </td>
         </ng-container>
         
         <ng-container matColumnDef="date">
-            <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-            <mat-cell *matCellDef="let taken"> {{taken.date}} </mat-cell>
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let taken"> {{taken.date}} </td>
         </ng-container>
 
         <ng-container matColumnDef="interval">
-            <mat-header-cell *matHeaderCellDef> Hour interval </mat-header-cell>
-            <mat-cell *matCellDef="let taken"> {{taken.intervalStart}} - {{taken.intervalEnd}} </mat-cell>
+            <th mat-header-cell *matHeaderCellDef> Hour interval </th>
+            <td mat-cell *matCellDef="let taken"> {{taken.intervalStart}} - {{taken.intervalEnd}} </td>
         </ng-container>
         
         <ng-container matColumnDef="taken">
-            <mat-header-cell *matHeaderCellDef> Taken </mat-header-cell>
-            <mat-cell *matCellDef="let taken"> {{taken.taken ? 'Yes' : 'No'}} </mat-cell>
+            <th mat-header-cell *matHeaderCellDef> Taken </th>
+            <td mat-cell *matCellDef="let taken"> {{taken.taken ? 'Yes' : 'No'}} </td>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="['name', 'date', 'interval', 'taken']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['name', 'date', 'interval', 'taken']"
+        <tr mat-header-row *matHeaderRowDef="['name', 'date', 'interval', 'taken']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['name', 'date', 'interval', 'taken']"
             [ngClass]="{hovered: row.hovered}"
             (mouseover)="row.hovered = true"
             (mouseout) = "row.hovered = false">
-        </mat-row>
-    </mat-table>
+        </tr>
+    </table>
 </div>
