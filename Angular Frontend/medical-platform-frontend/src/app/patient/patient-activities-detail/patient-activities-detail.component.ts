@@ -64,6 +64,7 @@ export class PatientActivitiesDetailComponent implements OnInit {
   // Activity justified/abnormal/normal breakdown
   pieTimeframe = this.MILLIS_1_WEEK;
   pieData: [string, number][];
+  pieEntriesTotal: number;
   pieOptions = {
     pieHole: 0.35,
     pieSliceText: 'label',
@@ -93,11 +94,30 @@ export class PatientActivitiesDetailComponent implements OnInit {
         // We have the data, now we want to fill in all of the chart data
         this.patientActivities = loadedActivities;
 
-        this.generateTimeline(loadedActivities);
-        this.generateActivityDistribution(loadedActivities, this.columnTimeframe);
-        this.generateActivityBreakdown(loadedActivities, this.pieTimeframe);
-        this.tablePagedData = loadedActivities.slice(0, this.tableDefaultPageSize);
+        this.generateTimeline(this.patientActivities);
+        this.generateActivityDistribution(this.patientActivities, this.columnTimeframe);
+        this.generateActivityBreakdown(this.patientActivities, this.pieTimeframe);
+        this.tablePagedData = this.patientActivities.slice(0, this.tableDefaultPageSize);
       });
+  }
+
+  computeDuration(activity: Activity): number {
+    // FIXME: this should by all means be in Activity or a related helper
+    // I'd implement it as a get property, but because of how the Activity[] array is populated,
+    // they don't actually get the getter methods, I get the feeling. So the compiler says nothing
+    // is wrong, but the getter doesn't actually return anything.
+    return Date.parse(activity.end) - Date.parse(activity.start);
+  }
+
+  formatDuration(durationInMilliseconds: number): string {
+    const hours = Math.floor(durationInMilliseconds / 3600000);
+    const minutes = Math.floor((durationInMilliseconds % 3600000) / 60000);
+    
+    if (hours > 0) {
+        return `${hours}h ${minutes}m`;
+    } else {
+        return `${minutes}m`;
+    }
   }
 
   generateTimeline(activities: Activity[]) {
@@ -178,6 +198,7 @@ export class PatientActivitiesDetailComponent implements OnInit {
       ['Justified', breakdown.justified],
       ['Abnormal', breakdown.abnormal]
     ];
+    this.pieEntriesTotal = breakdown.normal + breakdown.justified + breakdown.abnormal;
   }
 
   updateActivityDistribution(event: MatSelectChange) {
