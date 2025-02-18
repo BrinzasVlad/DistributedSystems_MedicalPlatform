@@ -21,10 +21,12 @@
       </dl>
     </mat-card-content>
     <mat-card-actions>
-      <a mat-flat-button color="primary" [routerLink]="['/medication-edit', medication.id]">
-        <mat-icon>edit</mat-icon>
-      </a>
-      <a mat-flat-button color="warn" (click)="deleteCurrentMedication()"><mat-icon>delete</mat-icon></a>
+        <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/medication-edit', medication.id]">
+          <mat-icon>edit</mat-icon>
+        </a>
+        <a mat-flat-button color="warn" (click)="deleteCurrentMedication()"><mat-icon>delete</mat-icon></a>
+      </div>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -37,10 +37,12 @@
       </mat-list>
     </mat-card-content>
     <mat-card-actions>
-      <a mat-flat-button color="primary" [routerLink]="['/caregiver-edit', caregiver.id]">
-        <mat-icon>edit</mat-icon>
-      </a>
-      <a mat-flat-button color="warn" (click)="deleteCurrentCaregiver()"><mat-icon>delete</mat-icon></a>
+      <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/caregiver-edit', caregiver.id]">
+          <mat-icon>edit</mat-icon>
+        </a>
+        <a mat-flat-button color="warn" (click)="deleteCurrentCaregiver()"><mat-icon>delete</mat-icon></a>
+      </div>
     </mat-card-actions>
   </mat-card>
 </div>
