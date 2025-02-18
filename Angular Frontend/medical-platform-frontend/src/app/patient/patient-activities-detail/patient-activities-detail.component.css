@@ -23,3 +23,17 @@
 .mat-mdc-row.hovered {
   background: #eee;
 }
+
+.mat-mdc-input-element {
+   font: inherit;
+}
+
+.textareaFormField {
+  width: 240px;
+  /* TODO: this might not look great on smaller screens
+     As screen size decreases, the textarea sort-of forces its size to be sacrificed last.
+     A better solution might be to style the table columns to set some minimum widths maybe?
+
+     Honestly, ideal would be a solution that dynamically scales it to fit the column width,
+     but currently column widths size themselves based on content length, so that won't work. */
+}

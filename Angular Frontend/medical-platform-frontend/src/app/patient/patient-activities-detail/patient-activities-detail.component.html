@@ -107,7 +107,11 @@
         <ng-container matColumnDef="recommendation">
             <th mat-header-cell *matHeaderCellDef> Recommendation </th>
             <td mat-cell *matCellDef="let activity">
-                <mat-form-field *ngIf="activity.recommendation || activity.justified">
+                <mat-form-field
+                    class="textareaFormField"
+                    subscriptSizing="dynamic"
+                    *ngIf="activity.recommendation || activity.justified"
+                >
                     <textarea
                         matInput
                         cdkTextareaAutosize
