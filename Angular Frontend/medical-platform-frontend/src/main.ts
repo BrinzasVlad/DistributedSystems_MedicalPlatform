@@ -9,7 +9,7 @@ import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app/app-routing.module';
+import { appRoutes } from './app/app-routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -28,6 +28,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
 
 if (environment.production) {
   enableProdMode();
@@ -35,9 +36,10 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
     providers: [
-        importProvidersFrom(BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule, MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatGridListModule, MatListModule, MatSlideToggleModule, MatExpansionModule, GoogleChartsModule),
+        importProvidersFrom(BrowserModule, FormsModule, ReactiveFormsModule, MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatGridListModule, MatListModule, MatSlideToggleModule, MatExpansionModule, GoogleChartsModule),
         DatePipe,
         { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+        provideRouter(appRoutes),
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations()
     ]

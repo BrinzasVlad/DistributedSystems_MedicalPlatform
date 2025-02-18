@@ -1,5 +1,4 @@
-import { NgModule, Component } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { MedicationsComponent } from './medication/medications/medications.component';
 import { MedicationDetailComponent } from './medication/medication-detail/medication-detail.component';
 import { HomeComponent } from './home/home.component';
@@ -15,7 +14,7 @@ import { CaregiverAddComponent } from './caregiver/caregiver-add/caregiver-add.c
 import { CaregiverEditComponent } from './caregiver/caregiver-edit/caregiver-edit.component';
 
 
-const routes: Routes = [
+export const appRoutes: Routes = [
   // Home page
   {
     path: '',
@@ -89,9 +88,3 @@ const routes: Routes = [
     data: { title: 'Editing Caregiver' }
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
