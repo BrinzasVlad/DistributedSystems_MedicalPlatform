@@ -24,6 +24,10 @@
     <div *ngIf="!stackedData || !stackedData.length">
         <h4>There is no medication data to display</h4>
     </div>
+    <!-- TODO: would be nice to have the values / percentages displayed right on the bars -->
+    <!-- Given that there are only two bars (taken / not taken), there should be ample room to add -->
+    <!-- values onto the bars as annotations. This might require a DataView, though, which -->
+    <!-- angular-google-charts might or might not support (they probably do, though) -->
 
     <table mat-table [dataSource]="medicationsTaken" *ngIf="medicationsTaken && medicationsTaken.length">
         

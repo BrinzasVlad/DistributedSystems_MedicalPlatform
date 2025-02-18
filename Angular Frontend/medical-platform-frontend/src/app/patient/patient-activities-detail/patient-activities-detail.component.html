@@ -17,6 +17,9 @@
     <div *ngIf="!timelineData.length">
         <h4>No activities recorded in the last 24 hours</h4>
     </div>
+    <!-- FIXME: Timeline chart might or might not be broken since Angular version migration -->
+    <!-- 24-hour recent data is needed to ensure that this works correctly -->
+    <!-- (And maybe some unit tests for this wouldn't hurt either) -->
 
 
     <h3>Activity distribution by name</h3>
