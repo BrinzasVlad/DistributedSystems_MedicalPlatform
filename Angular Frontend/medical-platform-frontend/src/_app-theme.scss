@@ -15,3 +15,18 @@
   height: 24px;
   width: 24px;
 }
+.mat-mdc-card > .mat-mdc-card-header {
+  padding-left: 32px;
+}
+.mat-mdc-card-title > h2 {
+  margin-bottom: 0;
+}
+// TODO: the above are a hacky way to override angular defaults
+// What was really intended with them was:
+// - make Material icons inside the app buttons bigger (override a 1.125rem styling of unknown source)
+// - move detail page headers more to the right like in older Angular versions (16px padding to 32px)
+// - remove the awkward spacing between detail page headers and data (16px margin to 0)
+// This would ideally have been done by directly targetting the intended elements, however
+// if the user and Angular both apply a selector of equal specificity (e.g. .mat-mdc-unelevated-button > .mat-icon),
+// Angular's style wins. Therefore, the selectors used here are somewhat more specific that would be ideal.
+// This could potentially be fixed by just flagging elements we want to change with custom classes?

@@ -14,7 +14,6 @@ export class AppComponent {
 // Known TODOs:
 // - timeline chart might or might not be broken; couldn't test without 24-hour-recent data
 // - smaller Material issues:
-// - - spacing changed somewhat (tables have less padding, detail pages have too much padding under title)
 // - - openable folders under patient-detail are now bold, which looks a bit too strong
 // - - having written labels (e.g. 12/16 - 75%) on the bars in the Medication History chart would be nice
 // - look at long list of providers in main.ts and figure whether that is normal or something is wrong
